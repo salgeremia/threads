@@ -1,9 +1,9 @@
 text = 'HappyEasterEgg!'
 
-i, raw = 0, 0
+i, row = 0, 0
 while True:
-    raw += 1
-    for _ in range(raw):
+    row += 1
+    for _ in range(row):
         if i < len(text):
             print(text[i], end=' ')
             i += 1
