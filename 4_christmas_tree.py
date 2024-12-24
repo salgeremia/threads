@@ -1,7 +1,7 @@
 from random import choice
 
-class cristmasTree:
-    def __init__(self, height: int, lights=False, balls=False) -> None:
+class ChristmasTree:
+    def __init__(self, height: int, lights: bool = False, balls: bool = False) -> None:
         '''Initialize the tree with height, lights and balls'''
         self.__height = height
         self.__lights = lights
@@ -18,7 +18,7 @@ class cristmasTree:
     def layers(self) -> str:
         '''Return the layers of the tree'''
         levels = ''
-        decorations = [' '] * 3 + ['.'] * self.__lights + ['o'] * self.__balls
+        decorations = [' '] * 3 + ['.'] * int(self.__lights) + ['o'] * int(self.__balls)
         for i in range(1, self.__height):
             decoration = ''.join([choice(decorations) for _ in range(2 * i - 1)])
             levels += ' ' * (self.__height - i) + '/' + decoration + '\\\n'
@@ -33,9 +33,9 @@ class cristmasTree:
         return ' ' * (self.__height - 1) + '| |\n'
 
 
-height = choice(range(3, 20))               # random height
-boolean = True, False                       # tuple unpacking
-lights = choice(boolean)                    # random lights
-balls = choice(boolean)                     # random balls
-tree = cristmasTree(height, lights, balls)  # create a tree
+height = choice(range(3, 20))                   # random height
+boolean = True, False                           # tuple unpacking
+lights = choice(boolean)                        # random lights
+balls = choice(boolean)                         # random balls
+tree = ChristmasTree(height, lights, balls)     # create a tree
 print(tree)
